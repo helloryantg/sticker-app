@@ -12,8 +12,6 @@ const useStyles = makeStyles({
 function Emoji(props) {
   const classes = useStyles(props)
 
-  console.log('props', props)
-
   return (
     <div className={classes.emoji}>
       🦄

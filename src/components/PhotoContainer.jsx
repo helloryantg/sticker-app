@@ -7,31 +7,27 @@ const useStyles = makeStyles({
   photoContainer: {
     height: '50%',
     width: '100%',
-    backgroundColor: 'aliceblue',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  image: {
+    height: '100%',
+    width: 'auto',
   }
 })
 
 function PhotoContainer(props) {
-  const { sliderValue } = props
+  const { photoFile, handleContainerClick, emojiList } = props
 
   const classes = useStyles()
-
-  const [emojiList, setEmojiList] = useState([])
-
-  const handleContainerClick = (event) => {
-    const emoji = { fontSize: `${sliderValue}px`, position: 'absolute', left: `${event.pageX - 40}px`, top: `${event.pageY - 40}px` }
-    setEmojiList([...emojiList, emoji])
-  }
 
   return (
     <div className={classes.photoContainer} onClick={handleContainerClick}>
       {emojiList.map((emoji, index) => {
         return <Emoji key={index} {...emoji} />
       })}
-      Photo Here
+      <img className={classes.image} src={photoFile} />
     </div>
   )
 }

@@ -10,12 +10,14 @@ const useStyles = makeStyles({
   }  
 })
 
-function Header() {
+function Header(props) {
+  const { handleChange } = props
+
   const classes = useStyles()
 
   return (
     <div className={classes.header}>
-      Title Here
+      <input type="file" onChange={handleChange} />
     </div>
   )
 }
