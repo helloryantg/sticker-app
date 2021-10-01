@@ -28,14 +28,14 @@ function EmojiContainer() {
 
   const classes = useStyles({ sliderValue })
 
-  const onSliderChange = (event, value) => {
+  const handleSliderChange = (event, value) => {
     setSliderValue(value)
   }
 
   return (
     <div className={classes.emojiContainer}>
       <Box width={300}>
-        <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" onChange={onSliderChange} />
+        <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" onChange={handleSliderChange} min={20} max={120} />
       </Box>
       <div className={classes.unicornContainer}>
         <div className={classes.unicorn}>🦄</div>

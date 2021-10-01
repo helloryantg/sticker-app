@@ -14,9 +14,13 @@ const useStyles = makeStyles({
 function PhotoContainer() {
   const classes = useStyles()
 
+  const handleContainerClick = (event) => {
+    console.log('event', event)
+  }
+
   return (
-    <div className={classes.photoContainer}>
-      Photo Container
+    <div className={classes.photoContainer} onClick={handleContainerClick}>
+      Photo Here
     </div>
   )
 }

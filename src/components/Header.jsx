@@ -15,7 +15,7 @@ function Header() {
 
   return (
     <div className={classes.header}>
-      Photo Upload
+      Title Here
     </div>
   )
 }
