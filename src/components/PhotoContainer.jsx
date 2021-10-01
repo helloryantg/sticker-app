@@ -14,14 +14,15 @@ const useStyles = makeStyles({
   }
 })
 
-function PhotoContainer() {
+function PhotoContainer(props) {
+  const { sliderValue } = props
+
   const classes = useStyles()
 
   const [emojiList, setEmojiList] = useState([])
 
   const handleContainerClick = (event) => {
-    console.log('event', event)
-    const emoji = { fontSize: '70px', position: 'absolute', left: `${event.pageX - 40}px`, top: `${event.pageY - 40}px` }
+    const emoji = { fontSize: `${sliderValue}px`, position: 'absolute', left: `${event.pageX - 40}px`, top: `${event.pageY - 40}px` }
     setEmojiList([...emojiList, emoji])
   }
 

@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Box from '@mui/material/Box'
 import Slider from '@mui/material/Slider'
@@ -23,14 +22,10 @@ const useStyles = makeStyles({
   }
 })
 
-function EmojiContainer() {
-  const [sliderValue, setSliderValue] = useState(50)
+function EmojiContainer(props) {
+  const { sliderValue, handleSliderChange } = props
 
   const classes = useStyles({ sliderValue })
-
-  const handleSliderChange = (event, value) => {
-    setSliderValue(value)
-  }
 
   return (
     <div className={classes.emojiContainer}>
