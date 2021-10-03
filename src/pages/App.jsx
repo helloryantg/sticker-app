@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Header from '../components/Header'
 import PhotoContainer from '../components/PhotoContainer'
 import EmojiContainer from '../components/EmojiContainer'
+import html2canvas from 'html2canvas'
 
 const useStyles = makeStyles({
   app: {
@@ -40,6 +41,59 @@ function App() {
     setEmojiList([...emojiList, emoji])
   }
 
+  const saveAs = (blob, fileName) => {
+    const element = window.document.createElement('a')
+    element.href = blob
+    element.download = fileName
+    element.style = 'display:none;'
+
+    (document.body || document.documentElement).appendChild(element)
+
+    if (typeof element.click === 'function') {
+      element.click()
+    } else {
+      element.target = '_blank'
+      element.dispatchEvent(new MouseEvent('click', {
+        view: window,
+        bubbles: true,
+        cancelable: true
+      }))
+      URL.revokeObjectURL(element.href)
+      element.remove()
+    }
+  }
+
+  const handleSave = async () => {
+    const html = document.getElementsByTagName('HTML')[0]
+    const body = document.getElementsByTagName('BODY')[0]
+    const htmlWidth = html.clientWidth
+    const bodyWidth = body.clientWidth
+    const data = document.getElementById('photoContainer')
+    const newWidth = data.scrollWidth - data.clientWidth
+
+    if (newWidth > data.clientWidth) {
+      htmlWidth += newWidth
+      bodyWidth += newWidth
+    }
+
+    html.style.width = htmlWidth + 'px'
+    body.style.width = bodyWidth + 'px'
+
+    const canvas = await html2canvas(data)
+    const image = canvas.toDataURL('image/png', 1.0)
+    const fileName = 'random_name.png'
+    saveAs(image, fileName)
+    
+
+    // const photoContainer = document.getElementById('photoContainer')
+    // console.log('photo container', photoContainer)
+
+    // html2canvas(photoContainer).then((canvas) => {
+    //   console.log('canvas', canvas)
+    //   document.body.appendChild(canvas)
+    // })
+  }
+
   return (
     <div className={classes.app}>
       <Header handleChange={handleChange} />
@@ -51,7 +105,9 @@ function App() {
       <EmojiContainer 
         sliderValue={sliderValue} 
         handleSliderChange={handleSliderChange} 
-        clearEmojis={() => setEmojiList([])} />
+        clearEmojis={() => setEmojiList([])} 
+        handleSave={handleSave}
+      />
     </div>
   )
 }

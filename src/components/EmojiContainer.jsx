@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 })
 
 function EmojiContainer(props) {
-  const { sliderValue, handleSliderChange, clearEmojis } = props
+  const { sliderValue, handleSliderChange, clearEmojis, handleSave } = props
 
   const classes = useStyles({ sliderValue })
 
@@ -36,6 +36,7 @@ function EmojiContainer(props) {
         <div className={classes.unicorn}>🦄</div>
       </div>
       <button onClick={clearEmojis} >Clear</button>
+      <button onClick={handleSave}>Save</button>
     </div>
   )
 }
