@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/sticker-app/static/css/main.d96516af.chunk.css",
+    "main.js": "/sticker-app/static/js/main.1dace03b.chunk.js",
+    "main.js.map": "/sticker-app/static/js/main.1dace03b.chunk.js.map",
+    "runtime-main.js": "/sticker-app/static/js/runtime-main.2d4964f0.js",
+    "runtime-main.js.map": "/sticker-app/static/js/runtime-main.2d4964f0.js.map",
+    "static/js/2.7954f59e.chunk.js": "/sticker-app/static/js/2.7954f59e.chunk.js",
+    "static/js/2.7954f59e.chunk.js.map": "/sticker-app/static/js/2.7954f59e.chunk.js.map",
+    "static/js/3.526d117f.chunk.js": "/sticker-app/static/js/3.526d117f.chunk.js",
+    "static/js/3.526d117f.chunk.js.map": "/sticker-app/static/js/3.526d117f.chunk.js.map",
+    "index.html": "/sticker-app/index.html",
+    "static/css/main.d96516af.chunk.css.map": "/sticker-app/static/css/main.d96516af.chunk.css.map",
+    "static/js/2.7954f59e.chunk.js.LICENSE.txt": "/sticker-app/static/js/2.7954f59e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2d4964f0.js",
+    "static/js/2.7954f59e.chunk.js",
+    "static/css/main.d96516af.chunk.css",
+    "static/js/main.1dace03b.chunk.js"
+  ]
+}
