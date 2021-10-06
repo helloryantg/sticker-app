@@ -41,48 +41,48 @@ function App() {
     setEmojiList([...emojiList, emoji])
   }
 
-  const saveAs = (blob, fileName) => {
-    const element = window.document.createElement('a')
-    element.href = blob
-    element.download = fileName
-    element.style = 'display:none;'
+  // const saveAs = (blob, fileName) => {
+  //   const element = window.document.createElement('a')
+  //   element.href = blob
+  //   element.download = fileName
+  //   element.style = 'display:none;'
 
-    (document.body || document.documentElement).appendChild(element)
+  //   (document.body || document.documentElement).appendChild(element)
 
-    if (typeof element.click === 'function') {
-      element.click()
-    } else {
-      element.target = '_blank'
-      element.dispatchEvent(new MouseEvent('click', {
-        view: window,
-        bubbles: true,
-        cancelable: true
-      }))
-      URL.revokeObjectURL(element.href)
-      element.remove()
-    }
-  }
+  //   if (typeof element.click === 'function') {
+  //     element.click()
+  //   } else {
+  //     element.target = '_blank'
+  //     element.dispatchEvent(new MouseEvent('click', {
+  //       view: window,
+  //       bubbles: true,
+  //       cancelable: true
+  //     }))
+  //     URL.revokeObjectURL(element.href)
+  //     element.remove()
+  //   }
+  // }
 
-  const handleSave = async () => {
-    const html = document.getElementsByTagName('HTML')[0]
-    const body = document.getElementsByTagName('BODY')[0]
-    const htmlWidth = html.clientWidth
-    const bodyWidth = body.clientWidth
-    const data = document.getElementById('photoContainer')
-    const newWidth = data.scrollWidth - data.clientWidth
+  // const handleSave = async () => {
+  //   const html = document.getElementsByTagName('HTML')[0]
+  //   const body = document.getElementsByTagName('BODY')[0]
+  //   const htmlWidth = html.clientWidth
+  //   const bodyWidth = body.clientWidth
+  //   const data = document.getElementById('photoContainer')
+  //   const newWidth = data.scrollWidth - data.clientWidth
 
-    if (newWidth > data.clientWidth) {
-      htmlWidth += newWidth
-      bodyWidth += newWidth
-    }
+  //   if (newWidth > data.clientWidth) {
+  //     htmlWidth += newWidth
+  //     bodyWidth += newWidth
+  //   }
 
-    html.style.width = htmlWidth + 'px'
-    body.style.width = bodyWidth + 'px'
+  //   html.style.width = htmlWidth + 'px'
+  //   body.style.width = bodyWidth + 'px'
 
-    const canvas = await html2canvas(data)
-    const image = canvas.toDataURL('image/png', 1.0)
-    const fileName = 'random_name.png'
-    saveAs(image, fileName)
+  //   const canvas = await html2canvas(data)
+  //   const image = canvas.toDataURL('image/png', 1.0)
+  //   const fileName = 'random_name.png'
+    // saveAs(image, fileName)
     
 
     // const photoContainer = document.getElementById('photoContainer')
@@ -92,7 +92,7 @@ function App() {
     //   console.log('canvas', canvas)
     //   document.body.appendChild(canvas)
     // })
-  }
+  // }
 
   return (
     <div className={classes.app}>
@@ -106,7 +106,7 @@ function App() {
         sliderValue={sliderValue} 
         handleSliderChange={handleSliderChange} 
         clearEmojis={() => setEmojiList([])} 
-        handleSave={handleSave}
+        // handleSave={handleSave}
       />
     </div>
   )
