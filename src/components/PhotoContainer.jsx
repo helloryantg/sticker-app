@@ -17,12 +17,12 @@ const useStyles = makeStyles({
 })
 
 function PhotoContainer(props) {
-  const { photoFile, handleContainerClick, emojiList } = props
+  const { photoFile, handleContainerClick, emojiList, printRef } = props
 
   const classes = useStyles()
 
   return (
-    <div id="photoContainer" className={classes.photoContainer} onClick={handleContainerClick}>
+    <div ref={printRef} id="photoContainer" className={classes.photoContainer} onClick={handleContainerClick}>
       {emojiList.map((emoji, index) => {
         return <Emoji key={index} {...emoji} />
       })}
